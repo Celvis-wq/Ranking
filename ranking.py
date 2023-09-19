@@ -5,7 +5,7 @@
 import csv
 from urllib import request
 
-# List of employees
+# Create a variable called employees
 employees = {
     "John": "Manager",
     "Alice": "Engineer",
@@ -24,20 +24,14 @@ url = "https://raw.githubusercontent.com/aruljohn/popular-baby-names/master/2004
 response = request.urlopen(url)
 data = response.read().decode('utf-8')
 
-# Parse data
+# Parse the data
 reader = csv.DictReader(data.splitlines())
 
-# Print
-# Rank Counter
-rankCounter = 0
+# Print the data
 for row in reader:
-    rankCounter += 1
     print('-' * 20)
     print("Rank:", row['Rank'])
-    print("Girl Name:", row['Girl Name'])
     print("Boy Name:", row['Boy Name'])
-    
-    if rankCounter >= 5:
-        break # end
+    print("Girl Name:", row['Girl Name'])
 
-response.close()
+response.close() # end
